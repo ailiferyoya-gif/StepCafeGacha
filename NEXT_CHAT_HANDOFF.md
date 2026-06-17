@@ -1,10 +1,10 @@
-﻿# StepCafeGacha 引継ぎ
+# StepCafeGacha 引継ぎ
 
 ## 現状
 
-`D:\Codex\StepCafeGacha` を新規作成し、歩数連動・放置カフェ経営・ガチャ収集育成ゲームとして仕様書 v0.1、デザイン方向 v0.1、Web確認用プロトタイプを作成した。
+`D:\Codex\StepCafeGacha` で、歩数連動・放置カフェ経営・ガチャ収集育成ゲームとして仕様書 v0.1、デザイン方向 v0.1、Web確認用プロトタイプを作成済み。
 
-GitHub公開とGitHub PagesでのWeb確認まで完了。
+現在のWebプロトタイプは、Webサイト風の説明画面ではなく、スマホゲームのメイン画面として見える構成に変更済み。カフェ店内は6列 x 7行のマス目で管理し、家具パレットから好きなマスへ内装アイテムを配置できる。
 
 ## 公開先
 
@@ -20,11 +20,17 @@ GitHub公開とGitHub PagesでのWeb確認まで完了。
 - `D:\Codex\StepCafeGacha\styles.css`
 - `D:\Codex\StepCafeGacha\app.js`
 - `D:\Codex\StepCafeGacha\assets\cafe-hero.png`
+- `D:\Codex\StepCafeGacha\assets\cafe-room-isometric.png`
+- `D:\Codex\StepCafeGacha\assets\decor\red-sofa.png`
+- `D:\Codex\StepCafeGacha\assets\decor\round-table.png`
+- `D:\Codex\StepCafeGacha\assets\decor\pastry-counter.png`
+- `D:\Codex\StepCafeGacha\assets\decor\potted-plant.png`
+- `D:\Codex\StepCafeGacha\assets\staff\barista-mina.png`
 - `D:\Codex\StepCafeGacha\tools\static-server.mjs`
 - `D:\Codex\StepCafeGacha\web\index.html`
 - `D:\Codex\StepCafeGacha\web\styles.css`
 - `D:\Codex\StepCafeGacha\web\app.js`
-- `D:\Codex\StepCafeGacha\web\assets\cafe-hero.png`
+- `D:\Codex\StepCafeGacha\web\assets\...`
 - `D:\Codex\StepCafeGacha\NEXT_CHAT_HANDOFF.md`
 
 ## 作業前バックアップ記録
@@ -36,6 +42,11 @@ GitHub公開とGitHub PagesでのWeb確認まで完了。
 - `D:\Codex\backups\StepCafeGacha_before_web_preview_20260618_0003\DESIGN_DIRECTION_v0.1.md`
 - `D:\Codex\backups\StepCafeGacha_before_web_preview_20260618_0003\NEXT_CHAT_HANDOFF.md`
 - `D:\Codex\backups\StepCafeGacha_before_publish_handoff_20260618_0004\NEXT_CHAT_HANDOFF.md`
+- `D:\Codex\backups\StepCafeGacha_before_grid_game_screen_20260618_0007\index.html`
+- `D:\Codex\backups\StepCafeGacha_before_grid_game_screen_20260618_0007\styles.css`
+- `D:\Codex\backups\StepCafeGacha_before_grid_game_screen_20260618_0007\app.js`
+- `D:\Codex\backups\StepCafeGacha_before_grid_game_screen_20260618_0007\README.md`
+- `D:\Codex\backups\StepCafeGacha_before_grid_game_screen_20260618_0007\NEXT_CHAT_HANDOFF.md`
 
 ## 決定済み
 
@@ -51,74 +62,46 @@ GitHub公開とGitHub PagesでのWeb確認まで完了。
 - スプライトシートは禁止。
 - iOSはSwiftUI、歩数取得はHealthKit優先。
 
-## Web確認結果
+## 2026-06-18 グリッド内装編集アップデート
 
-ローカルURL: `http://127.0.0.1:4178/`
-公開URL: `https://ailiferyoya-gif.github.io/StepCafeGacha/`
+追加内容:
+
+- Webサイト風の説明エリアを外し、スマホゲーム画面風のHUD、リソースバー、下部ナビへ変更。
+- 店内画面を6列 x 7行の配置グリッドとして実装。
+- 家具パレットから以下を選択し、好きなマスへ配置可能にした。
+  - ソファ: `assets/decor/red-sofa.png`
+  - 丸テーブル: `assets/decor/round-table.png`
+  - ショーケース: `assets/decor/pastry-counter.png`
+  - 植木: `assets/decor/potted-plant.png`
+  - 店員ミナ: `assets/staff/barista-mina.png`
+- 配置時に範囲外、他アイテムとの重なり、配置上限をチェック。
+- 撤去モード、全撤去、おまかせ配置を追加。
+- 配置数、満足度、内装効果、予測売上を配置内容から更新。
+- `web/` 配下にも同じ変更を反映。
 
 確認済み:
 
-- HTTP 200で表示。
-- `Walk Cafe Days` のタイトル表示。
-- ChatGPT生成背景 `assets/cafe-hero.png` の読み込み成功。
-- ホーム、歩数、ガチャ、編成、強化タブの表示。
-- 歩数タブ切り替え成功。
-- 疑似歩数 `+1,000歩` 操作成功。
-- ガチャ `1回引く` 操作成功。
-- デスクトップ幅でコンソールエラーなし。
-- モバイル幅相当で横はみ出しなし。
-- GitHub Pages上でも画像読み込みとガチャ操作成功。
-
-## Git状態
-
-- Repository: `ailiferyoya-gif/StepCafeGacha`
-- Branch: `main`
-- Initial commit: `483c7ea Add Walk Cafe Days web prototype`
-- Publish handoff commit: 作成後にpushする
+- `app.js` 構文チェックOK。
+- 日本語ラベルの文字化けチェックOK。
+- ローカルURLで背景、家具、店員画像の読み込み成功。
+- ローカルURLで丸テーブル選択、空きマス配置、全撤去の操作成功。
+- ローカルURLでモバイル幅390pxの横はみ出しなし。
 
 ## 未完了
 
 - iOSプロジェクト作成。
 - SwiftUI実装。
 - HealthKit実装。
-- キャラクター画像生成。
-- ガチャ演出設計。
+- 店員キャラをミナ以外にも個別生成。
+- 家具ごとの所持数、購入コスト、レベル、回転の実装。
+- 配置データの永続保存。
+- ガチャ演出強化。
 - バランス調整。
 
 ## 次にやること
 
-1. `D:\Codex\StepCafeGacha` 配下にSwiftUI iOSプロジェクトを作成する。
-2. WebプロトタイプのゲームループをSwiftUIへ移植する。
-3. 疑似歩数で先にゲームループを動かす。
-4. HealthKit連携を追加する。
-5. ChatGPT生成のキャラクター透過PNGを順次作成する。
-
-## 2026-06-18 内装・店員画像アップデート
-
-追加内容:
-
-- 参照画像のような箱庭カフェ経営ゲーム寄りの画面へ改修。
-- ChatGPT生成の新背景 `assets/cafe-room-isometric.png` を追加。
-- ChatGPT生成 + クロマキー透過の内装アイテムを追加。
-  - `assets/decor/red-sofa.png`
-  - `assets/decor/pastry-counter.png`
-- ChatGPT生成 + クロマキー透過の店員キャラを追加。
-  - `assets/staff/barista-mina.png`
-- ホーム画面で内装アイテムを個別に切り替え可能にした。
-- 赤ソファ、ショーケースは表示/配置変更可能。
-- 店員ミナは表示/非表示を切り替え可能。
-
-確認済み:
-
-- ローカルで背景、家具、店員画像の読み込み成功。
-- 内装切替ボタンが動作。
-- 店員表示切替が動作。
-- `app.js` 構文チェックOK。
-- モバイル幅相当で横はみ出しなし。
-
-次にやると良いこと:
-
-1. 店員キャラをミナ以外にも個別生成する。
-2. テーブル、観葉植物、看板、厨房設備などの内装アイテムを追加生成する。
-3. 内装アイテムにレベル・所持状態・購入コストを持たせる。
-4. iOS/SwiftUI側へ同じ内装レイヤー構造を移植する。
+1. Webプロトタイプのグリッド配置をSwiftUIへ移植する。
+2. 配置データを保存できるようにする。
+3. 家具に所持数、レベル、購入導線を追加する。
+4. HealthKit連携前に疑似歩数でゲームループを固める。
+5. ChatGPT生成のキャラクター透過PNGを増やす。

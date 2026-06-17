@@ -1,93 +1,83 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="ja">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Walk Cafe Days</title>
-  <meta name="description" content="歩数連動 × 放置カフェ経営 × ガチャ収集育成ゲームのWebプロトタイプ">
+  <meta name="description" content="歩数連動 × カフェ経営 × ガチャ収集育成ゲームのWebプロトタイプ">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main class="app-shell">
-    <section class="phone" aria-label="Walk Cafe Days prototype">
-      <header class="topbar">
-        <div>
-          <p class="eyebrow">Step Cafe Gacha</p>
-          <h1>Walk Cafe Days</h1>
+  <main class="game-shell" aria-label="Walk Cafe Days game screen">
+    <section class="game-device">
+      <header class="game-hud" aria-label="ゲームHUD">
+        <div class="profile-chip">
+          <img src="assets/staff/barista-mina.png" alt="店員ミナ" class="profile-avatar">
+          <div>
+            <span class="rank-tag">Cafe Lv. 12</span>
+            <strong>Walk Cafe Days</strong>
+          </div>
         </div>
-        <button class="icon-button" id="collectIdle" type="button" aria-label="放置売上を回収">¥</button>
+        <button class="hud-command" id="collectIdle" type="button" aria-label="放置売上を回収">回収</button>
       </header>
 
-      <section class="cafe-stage" aria-label="カフェ内装ステージ">
-        <img src="assets/cafe-room-isometric.png" alt="箱庭風のカフェ店内" class="room-image">
-        <img src="assets/decor/red-sofa.png" alt="赤いソファ席" class="decor-img sofa active" id="decorSofa">
-        <img src="assets/decor/pastry-counter.png" alt="ケーキショーケース" class="decor-img counter active" id="decorCounter">
-        <img src="assets/staff/barista-mina.png" alt="カフェ店員ミナ" class="staff-img active" id="staffMina">
-        <div class="stage-hud">
-          <span class="rank">Cafe Rank 1</span>
-          <span id="layoutName">Cozy Layout</span>
-        </div>
-        <p id="salesLog" class="stage-log">内装アイテムを選んで、カフェの雰囲気と売上を整えましょう。</p>
-      </section>
-
-      <section class="resources" aria-label="所持リソース">
+      <section class="resource-bar" aria-label="所持リソース">
         <article><span>歩数</span><strong id="stepCount">4,820</strong></article>
         <article><span>コイン</span><strong id="coins">1,240</strong></article>
         <article><span>券</span><strong id="tickets">3</strong></article>
         <article><span>評判</span><strong id="reputation">42</strong></article>
       </section>
 
-      <nav class="tabs" aria-label="画面切り替え">
-        <button class="tab active" data-screen="home" type="button">ホーム</button>
-        <button class="tab" data-screen="steps" type="button">歩数</button>
-        <button class="tab" data-screen="gacha" type="button">ガチャ</button>
-        <button class="tab" data-screen="team" type="button">編成</button>
-        <button class="tab" data-screen="upgrade" type="button">強化</button>
-      </nav>
-
-      <section class="screen active" id="home">
-        <div class="panel-grid">
-          <article class="panel compact-panel">
-            <h3>本日の営業</h3>
-            <div class="metric"><span>予測売上</span><strong id="forecastSales">2,180</strong></div>
-            <div class="metric"><span>来客数</span><strong id="forecastGuests">36</strong></div>
-            <div class="metric"><span>内装効果</span><strong id="decorBonus">+18%</strong></div>
-          </article>
-          <article class="panel decor-panel">
-            <div class="panel-title-row">
-              <h3>内装アイテム</h3>
-              <button id="presetButton" class="mini-command" type="button">おまかせ</button>
-            </div>
-            <div class="decor-controls" id="decorControls"></div>
-          </article>
-          <article class="panel staff-panel">
-            <h3>店員</h3>
-            <div class="staff-card">
-              <img src="assets/staff/barista-mina.png" alt="ミナ" class="staff-portrait">
-              <div>
-                <strong>ミナ</strong>
-                <p>接客 + 評判アップ。ホーム画面に配置できます。</p>
-              </div>
-              <button id="toggleStaff" type="button">表示</button>
-            </div>
-          </article>
-          <article class="panel accent">
-            <h3>歩数ブースト</h3>
-            <p>5,000歩でガチャ券、10,000歩で営業ブースト。</p>
-            <button id="addSteps" type="button">+1,000歩</button>
-          </article>
+      <section class="play-screen" id="homeScreen" aria-label="カフェ内装編集">
+        <div class="board-topline">
+          <div>
+            <span class="mode-label">内装編集</span>
+            <h1>カフェ配置</h1>
+          </div>
+          <div class="board-stats" aria-label="営業予測">
+            <span>売上 <strong id="forecastSales">2,180</strong></span>
+            <span>効果 <strong id="decorBonus">+18%</strong></span>
+          </div>
         </div>
+
+        <div class="cafe-board-wrap">
+          <div class="cafe-board" id="cafeBoard" aria-label="家具配置グリッド">
+            <img src="assets/cafe-room-isometric.png" alt="箱庭風のカフェ店内" class="board-room">
+            <div class="board-vignette"></div>
+            <div class="grid-layer" id="gridLayer"></div>
+            <div class="placed-layer" id="placedLayer"></div>
+            <div class="board-badges">
+              <span id="placementCount">0/18</span>
+              <span id="layoutScore">満足度 0</span>
+            </div>
+            <p class="stage-log" id="salesLog">家具を選んでマスをタップすると、好きな位置に配置できます。</p>
+          </div>
+        </div>
+
+        <section class="tool-panel" aria-label="内装ツール">
+          <div class="tool-row">
+            <button class="edit-tool active" id="placeMode" type="button">配置</button>
+            <button class="edit-tool" id="removeMode" type="button">撤去</button>
+            <button class="edit-tool" id="clearLayout" type="button">全撤去</button>
+            <button class="edit-tool primary" id="presetButton" type="button">おまかせ</button>
+          </div>
+          <div class="palette" id="decorPalette" aria-label="家具パレット"></div>
+        </section>
       </section>
 
-      <section class="screen" id="steps">
-        <h3>今日の歩数報酬</h3>
+      <section class="screen" id="stepsScreen" aria-label="歩数報酬">
+        <div class="screen-title-row">
+          <h2>今日の歩数報酬</h2>
+          <button id="addSteps" type="button">+1,000歩</button>
+        </div>
         <div class="reward-list" id="rewardList"></div>
       </section>
 
-      <section class="screen" id="gacha">
+      <section class="screen" id="gachaScreen" aria-label="ガチャ">
         <div class="gacha-stage">
           <div class="gacha-card" id="gachaCard">
             <span class="rarity">?</span>
+            <img src="assets/staff/barista-mina.png" alt="ガチャ排出キャラクター" class="gacha-portrait">
             <strong>スタッフガチャ</strong>
             <p>チケット1枚で仲間を迎える</p>
           </div>
@@ -95,27 +85,24 @@
         </div>
       </section>
 
-      <section class="screen" id="team">
-        <h3>営業編成</h3>
+      <section class="screen" id="teamScreen" aria-label="スタッフ編成">
+        <h2>スタッフ編成</h2>
         <div class="loadout" id="loadout"></div>
       </section>
 
-      <section class="screen" id="upgrade">
-        <h3>強化</h3>
+      <section class="screen" id="upgradeScreen" aria-label="強化">
+        <h2>設備強化</h2>
         <div class="upgrade-list" id="upgradeList"></div>
       </section>
-    </section>
 
-    <aside class="brief">
-      <p class="eyebrow">Web Preview</p>
-      <h2>内装を選んで育てるカフェ経営</h2>
-      <p>ChatGPT生成の店内背景、家具、店員を個別アセットとして使っています。ソファ、ショーケース、店員表示を切り替えて、ゲーム画面らしいカフェ作りを確認できます。</p>
-      <ul>
-        <li>内装アイテムを個別に設定</li>
-        <li>店員キャラクターを透過PNGで配置</li>
-        <li>GitHub Pagesで静的公開可能</li>
-      </ul>
-    </aside>
+      <nav class="bottom-nav" aria-label="画面切り替え">
+        <button class="nav-item active" data-screen="home" type="button"><span>店内</span></button>
+        <button class="nav-item" data-screen="steps" type="button"><span>歩数</span></button>
+        <button class="nav-item" data-screen="gacha" type="button"><span>ガチャ</span></button>
+        <button class="nav-item" data-screen="team" type="button"><span>編成</span></button>
+        <button class="nav-item" data-screen="upgrade" type="button"><span>強化</span></button>
+      </nav>
+    </section>
   </main>
   <script src="app.js"></script>
 </body>
