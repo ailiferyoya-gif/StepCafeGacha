@@ -4,7 +4,12 @@
 
 `D:\Codex\StepCafeGacha` を新規作成し、歩数連動・放置カフェ経営・ガチャ収集育成ゲームとして仕様書 v0.1、デザイン方向 v0.1、Web確認用プロトタイプを作成した。
 
-ローカルgitリポジトリも初期化済み。GitHubへの公開は、GitHub CLI `gh` が未インストールで、新規リポジトリ作成ツールも現在のGitHubアプリに無いため未完了。
+GitHub公開とGitHub PagesでのWeb確認まで完了。
+
+## 公開先
+
+- GitHub: `https://github.com/ailiferyoya-gif/StepCafeGacha`
+- GitHub Pages: `https://ailiferyoya-gif.github.io/StepCafeGacha/`
 
 ## 作成ファイル
 
@@ -30,6 +35,7 @@
 - `D:\Codex\backups\StepCafeGacha_before_web_preview_20260618_0003\SPEC_v0.1.md`
 - `D:\Codex\backups\StepCafeGacha_before_web_preview_20260618_0003\DESIGN_DIRECTION_v0.1.md`
 - `D:\Codex\backups\StepCafeGacha_before_web_preview_20260618_0003\NEXT_CHAT_HANDOFF.md`
+- `D:\Codex\backups\StepCafeGacha_before_publish_handoff_20260618_0004\NEXT_CHAT_HANDOFF.md`
 
 ## 決定済み
 
@@ -48,6 +54,7 @@
 ## Web確認結果
 
 ローカルURL: `http://127.0.0.1:4178/`
+公開URL: `https://ailiferyoya-gif.github.io/StepCafeGacha/`
 
 確認済み:
 
@@ -60,13 +67,17 @@
 - ガチャ `1回引く` 操作成功。
 - デスクトップ幅でコンソールエラーなし。
 - モバイル幅相当で横はみ出しなし。
+- GitHub Pages上でも画像読み込みとガチャ操作成功。
+
+## Git状態
+
+- Repository: `ailiferyoya-gif/StepCafeGacha`
+- Branch: `main`
+- Initial commit: `483c7ea Add Walk Cafe Days web prototype`
+- Publish handoff commit: 作成後にpushする
 
 ## 未完了
 
-- GitHub新規リポジトリ作成。
-- GitHubへのpush。
-- GitHub Pages有効化。
-- GitHub Pages URLでのWeb確認。
 - iOSプロジェクト作成。
 - SwiftUI実装。
 - HealthKit実装。
@@ -76,8 +87,8 @@
 
 ## 次にやること
 
-1. GitHub CLI `gh` をインストールして認証する、またはGitHub上に空リポジトリを作成してURLを指定する。
-2. `D:\Codex\StepCafeGacha` のローカルコミットをGitHubへpushする。
-3. GitHub Pagesをmainブランチのrootから有効化する。
-4. Pages URLを開いて表示確認する。
-5. その後、iOS/SwiftUIプロトタイプへ進む。
+1. `D:\Codex\StepCafeGacha` 配下にSwiftUI iOSプロジェクトを作成する。
+2. WebプロトタイプのゲームループをSwiftUIへ移植する。
+3. 疑似歩数で先にゲームループを動かす。
+4. HealthKit連携を追加する。
+5. ChatGPT生成のキャラクター透過PNGを順次作成する。
