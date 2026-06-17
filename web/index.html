@@ -18,15 +18,16 @@
         <button class="icon-button" id="collectIdle" type="button" aria-label="放置売上を回収">¥</button>
       </header>
 
-      <section class="hero" aria-label="カフェ状況">
-        <img src="assets/cafe-hero.png" alt="朝の光が入る小さな現代カフェの店内" class="hero-image">
-        <div class="hero-overlay">
-          <div>
-            <span class="rank">Cafe Rank 1</span>
-            <h2>町角の小さなカフェ</h2>
-          </div>
-          <p id="salesLog">放置売上がゆっくり貯まっています。</p>
+      <section class="cafe-stage" aria-label="カフェ内装ステージ">
+        <img src="assets/cafe-room-isometric.png" alt="箱庭風のカフェ店内" class="room-image">
+        <img src="assets/decor/red-sofa.png" alt="赤いソファ席" class="decor-img sofa active" id="decorSofa">
+        <img src="assets/decor/pastry-counter.png" alt="ケーキショーケース" class="decor-img counter active" id="decorCounter">
+        <img src="assets/staff/barista-mina.png" alt="カフェ店員ミナ" class="staff-img active" id="staffMina">
+        <div class="stage-hud">
+          <span class="rank">Cafe Rank 1</span>
+          <span id="layoutName">Cozy Layout</span>
         </div>
+        <p id="salesLog" class="stage-log">内装アイテムを選んで、カフェの雰囲気と売上を整えましょう。</p>
       </section>
 
       <section class="resources" aria-label="所持リソース">
@@ -46,11 +47,29 @@
 
       <section class="screen active" id="home">
         <div class="panel-grid">
-          <article class="panel">
+          <article class="panel compact-panel">
             <h3>本日の営業</h3>
-            <p>スタッフとメニューの相性で売上が変わります。</p>
             <div class="metric"><span>予測売上</span><strong id="forecastSales">2,180</strong></div>
             <div class="metric"><span>来客数</span><strong id="forecastGuests">36</strong></div>
+            <div class="metric"><span>内装効果</span><strong id="decorBonus">+18%</strong></div>
+          </article>
+          <article class="panel decor-panel">
+            <div class="panel-title-row">
+              <h3>内装アイテム</h3>
+              <button id="presetButton" class="mini-command" type="button">おまかせ</button>
+            </div>
+            <div class="decor-controls" id="decorControls"></div>
+          </article>
+          <article class="panel staff-panel">
+            <h3>店員</h3>
+            <div class="staff-card">
+              <img src="assets/staff/barista-mina.png" alt="ミナ" class="staff-portrait">
+              <div>
+                <strong>ミナ</strong>
+                <p>接客 + 評判アップ。ホーム画面に配置できます。</p>
+              </div>
+              <button id="toggleStaff" type="button">表示</button>
+            </div>
           </article>
           <article class="panel accent">
             <h3>歩数ブースト</h3>
@@ -89,11 +108,11 @@
 
     <aside class="brief">
       <p class="eyebrow">Web Preview</p>
-      <h2>歩いて、集めて、育てるカフェ経営</h2>
-      <p>HealthKit連携前の確認用プロトタイプです。疑似歩数、報酬受け取り、スタッフガチャ、編成、強化の基本ループをブラウザで確認できます。</p>
+      <h2>内装を選んで育てるカフェ経営</h2>
+      <p>ChatGPT生成の店内背景、家具、店員を個別アセットとして使っています。ソファ、ショーケース、店員表示を切り替えて、ゲーム画面らしいカフェ作りを確認できます。</p>
       <ul>
-        <li>無料ガチャ中心のMVP</li>
-        <li>ミニゲームなしの編成・育成型</li>
+        <li>内装アイテムを個別に設定</li>
+        <li>店員キャラクターを透過PNGで配置</li>
         <li>GitHub Pagesで静的公開可能</li>
       </ul>
     </aside>
@@ -101,5 +120,3 @@
   <script src="app.js"></script>
 </body>
 </html>
-
-
