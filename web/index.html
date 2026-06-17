@@ -1,0 +1,105 @@
+﻿<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Walk Cafe Days</title>
+  <meta name="description" content="歩数連動 × 放置カフェ経営 × ガチャ収集育成ゲームのWebプロトタイプ">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="phone" aria-label="Walk Cafe Days prototype">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Step Cafe Gacha</p>
+          <h1>Walk Cafe Days</h1>
+        </div>
+        <button class="icon-button" id="collectIdle" type="button" aria-label="放置売上を回収">¥</button>
+      </header>
+
+      <section class="hero" aria-label="カフェ状況">
+        <img src="assets/cafe-hero.png" alt="朝の光が入る小さな現代カフェの店内" class="hero-image">
+        <div class="hero-overlay">
+          <div>
+            <span class="rank">Cafe Rank 1</span>
+            <h2>町角の小さなカフェ</h2>
+          </div>
+          <p id="salesLog">放置売上がゆっくり貯まっています。</p>
+        </div>
+      </section>
+
+      <section class="resources" aria-label="所持リソース">
+        <article><span>歩数</span><strong id="stepCount">4,820</strong></article>
+        <article><span>コイン</span><strong id="coins">1,240</strong></article>
+        <article><span>券</span><strong id="tickets">3</strong></article>
+        <article><span>評判</span><strong id="reputation">42</strong></article>
+      </section>
+
+      <nav class="tabs" aria-label="画面切り替え">
+        <button class="tab active" data-screen="home" type="button">ホーム</button>
+        <button class="tab" data-screen="steps" type="button">歩数</button>
+        <button class="tab" data-screen="gacha" type="button">ガチャ</button>
+        <button class="tab" data-screen="team" type="button">編成</button>
+        <button class="tab" data-screen="upgrade" type="button">強化</button>
+      </nav>
+
+      <section class="screen active" id="home">
+        <div class="panel-grid">
+          <article class="panel">
+            <h3>本日の営業</h3>
+            <p>スタッフとメニューの相性で売上が変わります。</p>
+            <div class="metric"><span>予測売上</span><strong id="forecastSales">2,180</strong></div>
+            <div class="metric"><span>来客数</span><strong id="forecastGuests">36</strong></div>
+          </article>
+          <article class="panel accent">
+            <h3>歩数ブースト</h3>
+            <p>5,000歩でガチャ券、10,000歩で営業ブースト。</p>
+            <button id="addSteps" type="button">+1,000歩</button>
+          </article>
+        </div>
+      </section>
+
+      <section class="screen" id="steps">
+        <h3>今日の歩数報酬</h3>
+        <div class="reward-list" id="rewardList"></div>
+      </section>
+
+      <section class="screen" id="gacha">
+        <div class="gacha-stage">
+          <div class="gacha-card" id="gachaCard">
+            <span class="rarity">?</span>
+            <strong>スタッフガチャ</strong>
+            <p>チケット1枚で仲間を迎える</p>
+          </div>
+          <button id="drawGacha" type="button">1回引く</button>
+        </div>
+      </section>
+
+      <section class="screen" id="team">
+        <h3>営業編成</h3>
+        <div class="loadout" id="loadout"></div>
+      </section>
+
+      <section class="screen" id="upgrade">
+        <h3>強化</h3>
+        <div class="upgrade-list" id="upgradeList"></div>
+      </section>
+    </section>
+
+    <aside class="brief">
+      <p class="eyebrow">Web Preview</p>
+      <h2>歩いて、集めて、育てるカフェ経営</h2>
+      <p>HealthKit連携前の確認用プロトタイプです。疑似歩数、報酬受け取り、スタッフガチャ、編成、強化の基本ループをブラウザで確認できます。</p>
+      <ul>
+        <li>無料ガチャ中心のMVP</li>
+        <li>ミニゲームなしの編成・育成型</li>
+        <li>GitHub Pagesで静的公開可能</li>
+      </ul>
+    </aside>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
+
+
