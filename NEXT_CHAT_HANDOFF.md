@@ -47,6 +47,7 @@
 - `D:\Codex\backups\StepCafeGacha_before_grid_game_screen_20260618_0007\app.js`
 - `D:\Codex\backups\StepCafeGacha_before_grid_game_screen_20260618_0007\README.md`
 - `D:\Codex\backups\StepCafeGacha_before_grid_game_screen_20260618_0007\NEXT_CHAT_HANDOFF.md`
+- `D:\Codex\backups\StepCafeGacha_before_grid_fit_assets_20260618_0008\...`
 
 ## 決定済み
 
@@ -105,3 +106,23 @@
 3. 家具に所持数、レベル、購入導線を追加する。
 4. HealthKit連携前に疑似歩数でゲームループを固める。
 5. ChatGPT生成のキャラクター透過PNGを増やす。
+
+## 2026-06-18 Grid-fit Asset Regeneration
+
+Changes:
+
+- Regenerated `assets/cafe-room-isometric.png` as an empty cafe background with a readable 6 x 7 floor grid.
+- Regenerated sofa, round table, pastry counter, potted plant, and Mina in a matching grid-friendly camera angle.
+- Used individual generated images and #ff00ff chroma-key removal for transparent furniture/staff PNGs. No spritesheet was used.
+- Adjusted board aspect ratio and grid padding to align with the new floor tiles.
+- Changed Mina to a 1 x 2 grid item.
+- Updated CSS/JS cache version to `grid-fit-assets` for GitHub Pages.
+
+Verified locally:
+
+- `app.js` syntax check OK.
+- UTF-8 label check OK.
+- Images load, 42 cells render, and 5 palette items render.
+- Clear layout, place sofa 2 x 1, and place Mina 1 x 2 all work.
+- No horizontal overflow at 390px mobile width.
+

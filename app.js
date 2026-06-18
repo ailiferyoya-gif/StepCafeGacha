@@ -12,7 +12,7 @@ const catalog = [
   { key: "table", label: "丸テーブル", note: "1x1", w: 1, h: 1, bonus: 5, sales: 80, image: assets.table, className: "table" },
   { key: "counter", label: "ショーケース", note: "2x1", w: 2, h: 1, bonus: 10, sales: 190, image: assets.counter, className: "counter" },
   { key: "plant", label: "植木", note: "1x1", w: 1, h: 1, bonus: 3, sales: 35, image: assets.plant, className: "plant" },
-  { key: "staff", label: "ミナ", note: "1x1", w: 1, h: 1, bonus: 5, sales: 110, image: assets.staff, className: "staff" }
+  { key: "staff", label: "ミナ", note: "1x2", w: 1, h: 2, bonus: 5, sales: 110, image: assets.staff, className: "staff" }
 ];
 const state = {
   steps: 4820,

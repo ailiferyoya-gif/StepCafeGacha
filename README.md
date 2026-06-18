@@ -43,3 +43,12 @@ C:\Users\kogit\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin
 - `assets/decor/potted-plant.png`: ChatGPT生成 + クロマキー透過の植木
 - `assets/staff/barista-mina.png`: ChatGPT生成 + クロマキー透過の店員キャラ
 - `NEXT_CHAT_HANDOFF.md`: 作業引継ぎ
+
+
+## 2026-06-18 Grid-fit Asset Update
+
+- Regenerated the cafe background for a readable 6 x 7 floor grid.
+- Regenerated sofa, round table, pastry counter, potted plant, and Mina with the same grid-friendly camera angle.
+- Saved furniture and staff as individual transparent PNG files after #ff00ff chroma-key removal. No spritesheet was used.
+- Mina now occupies 1 x 2 grid cells.
+
